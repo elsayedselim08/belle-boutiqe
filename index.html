@@ -9,6 +9,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 /* ===== RESET & ROOT ===== */
 *{margin:0;padding:0;box-sizing:border-box}
@@ -1532,14 +1533,7 @@ input:checked+.toggle-track:before{transform:translateX(20px)}
       </div>
     </div>
     <div class="shop-products" id="shopProds">
-      <div class="sp-card cursor-hover" onclick="showPage('product')"><div class="sp-img-wrap"><div class="sp-img" style="background:linear-gradient(160deg,#2A1F14,#1A1208)">👗</div><div class="sp-img-alt">✨</div><span class="sp-badge new-badge">جديد</span><div class="sp-actions"><button class="sp-act-btn cursor-hover" onclick="event.stopPropagation();flyToCart(event)">إضافة للسلة</button><button class="sp-act-btn cursor-hover" style="max-width:50px" onclick="event.stopPropagation()">♡</button></div></div><div class="sp-name">فستان سهرة نود الكلاسيكي</div><div class="sp-price">1,850 ج.م</div></div>
-      <div class="sp-card cursor-hover" onclick="showPage('product')"><div class="sp-img-wrap"><div class="sp-img" style="background:linear-gradient(160deg,#1E1810,#28200E)">👘</div><div class="sp-img-alt">🌸</div><span class="sp-badge">خصم ٢٠٪</span><div class="sp-actions"><button class="sp-act-btn cursor-hover" onclick="event.stopPropagation();flyToCart(event)">إضافة للسلة</button><button class="sp-act-btn cursor-hover" style="max-width:50px" onclick="event.stopPropagation()">♡</button></div></div><div class="sp-name">عباية ساتان الملكية</div><div class="sp-price"><span class="sp-price-old">2,400</span>1,920 ج.م</div></div>
-      <div class="sp-card cursor-hover" onclick="showPage('product')"><div class="sp-img-wrap"><div class="sp-img" style="background:linear-gradient(160deg,#251C12,#191108)">👚</div><div class="sp-img-alt">💎</div><div class="sp-actions"><button class="sp-act-btn cursor-hover" onclick="event.stopPropagation();flyToCart(event)">إضافة للسلة</button><button class="sp-act-btn cursor-hover" style="max-width:50px" onclick="event.stopPropagation()">♡</button></div></div><div class="sp-name">بلوزة حرير كريمية</div><div class="sp-price">960 ج.م</div></div>
-      <div class="sp-card cursor-hover" onclick="showPage('product')"><div class="sp-img-wrap"><div class="sp-img" style="background:linear-gradient(160deg,#2E2318,#1C1510)">🩱</div><div class="sp-img-alt">☀️</div><span class="sp-badge">تخفيض</span><div class="sp-actions"><button class="sp-act-btn cursor-hover" onclick="event.stopPropagation();flyToCart(event)">إضافة للسلة</button><button class="sp-act-btn cursor-hover" style="max-width:50px" onclick="event.stopPropagation()">♡</button></div></div><div class="sp-name">ست صيفي ليموني</div><div class="sp-price"><span class="sp-price-old">1,200</span>840 ج.م</div></div>
-      <div class="sp-card cursor-hover" onclick="showPage('product')"><div class="sp-img-wrap"><div class="sp-img" style="background:linear-gradient(160deg,#1A160F,#261D11)">🧣</div><div class="sp-img-alt">✦</div><span class="sp-badge new-badge">مميز</span><div class="sp-actions"><button class="sp-act-btn cursor-hover" onclick="event.stopPropagation();flyToCart(event)">إضافة للسلة</button><button class="sp-act-btn cursor-hover" style="max-width:50px" onclick="event.stopPropagation()">♡</button></div></div><div class="sp-name">وشاح شيفون ذهبي</div><div class="sp-price">450 ج.م</div></div>
-      <div class="sp-card cursor-hover" onclick="showPage('product')"><div class="sp-img-wrap"><div class="sp-img" style="background:linear-gradient(160deg,#221A0C,#2A2018)">👗</div><div class="sp-img-alt">🌹</div><div class="sp-actions"><button class="sp-act-btn cursor-hover" onclick="event.stopPropagation();flyToCart(event)">إضافة للسلة</button><button class="sp-act-btn cursor-hover" style="max-width:50px" onclick="event.stopPropagation()">♡</button></div></div><div class="sp-name">ماكسي فستان البوهو</div><div class="sp-price">1,350 ج.م</div></div>
-      <div class="sp-card cursor-hover" onclick="showPage('product')"><div class="sp-img-wrap"><div class="sp-img" style="background:linear-gradient(160deg,#1C1408,#231A0E)">👜</div><div class="sp-img-alt">💛</div><span class="sp-badge new-badge">جديد</span><div class="sp-actions"><button class="sp-act-btn cursor-hover" onclick="event.stopPropagation();flyToCart(event)">إضافة للسلة</button><button class="sp-act-btn cursor-hover" style="max-width:50px" onclick="event.stopPropagation()">♡</button></div></div><div class="sp-name">شنطة ساتان نود</div><div class="sp-price">780 ج.م</div></div>
-      <div class="sp-card cursor-hover" onclick="showPage('product')"><div class="sp-img-wrap"><div class="sp-img" style="background:linear-gradient(160deg,#2E2016,#1A1208)">👘</div><div class="sp-img-alt">🌸</div><div class="sp-actions"><button class="sp-act-btn cursor-hover" onclick="event.stopPropagation();flyToCart(event)">إضافة للسلة</button><button class="sp-act-btn cursor-hover" style="max-width:50px" onclick="event.stopPropagation()">♡</button></div></div><div class="sp-name">كيمونو حرير كلاسيك</div><div class="sp-price">1,650 ج.م</div></div>
+      <div id="shopLoading" style="grid-column:1/-1;text-align:center;padding:4rem;color:var(--gold);font-size:.8rem;letter-spacing:.3em">جاري التحميل...</div>
     </div>
   </div>
 </div>
@@ -1746,11 +1740,8 @@ input:checked+.toggle-track:before{transform:translateX(20px)}
             <div class="adm-card-title" style="display:flex;justify-content:space-between;align-items:center">آخر الطلبات <button class="adm-btn cursor-hover" onclick="showAdmSec('orders',null)">عرض الكل</button></div>
             <table class="adm-table">
               <thead><tr><th>رقم الطلب</th><th>العميلة</th><th>المنتجات</th><th>الإجمالي</th><th>الحالة</th></tr></thead>
-              <tbody>
-                <tr><td>#١٢٤٥</td><td style="color:rgba(248,243,236,.7)">سارة محمود</td><td>فستان سهرة</td><td style="color:var(--gold-bright)">1,850 ج.م</td><td><span class="status-pill sp-delivered">تم التوصيل</span></td></tr>
-                <tr><td>#١٢٤٤</td><td style="color:rgba(248,243,236,.7)">نور خالد</td><td>عباية + وشاح</td><td style="color:var(--gold-bright)">2,370 ج.م</td><td><span class="status-pill sp-processing">جاري</span></td></tr>
-                <tr><td>#١٢٤٣</td><td style="color:rgba(248,243,236,.7)">ريم فارس</td><td>بلوزة حرير</td><td style="color:var(--gold-bright)">960 ج.م</td><td><span class="status-pill sp-pending">انتظار</span></td></tr>
-                <tr><td>#١٢٤٢</td><td style="color:rgba(248,243,236,.7)">منى إبراهيم</td><td>ست صيفي</td><td style="color:var(--gold-bright)">840 ج.م</td><td><span class="status-pill sp-delivered">تم التوصيل</span></td></tr>
+              <tbody id="dashOrdersBody">
+                <tr><td colspan="5" style="text-align:center;padding:2rem;color:var(--gold);font-size:.8rem;letter-spacing:.3em">جاري التحميل...</td></tr>
               </tbody>
             </table>
           </div>
@@ -1780,11 +1771,8 @@ input:checked+.toggle-track:before{transform:translateX(20px)}
               </div>
             </div>
           </div>
-          <div class="adm-grid-products">
-            <div class="adm-prod-card"><div class="adm-prod-img">👗</div><div class="adm-prod-info"><div class="adm-prod-name">فستان سهرة نود</div><div class="adm-prod-price">1,850 ج.م</div><div class="adm-actions-row"><button class="adm-btn cursor-hover">تعديل</button><button class="adm-btn danger cursor-hover">حذف</button></div></div></div>
-            <div class="adm-prod-card"><div class="adm-prod-img" style="background:linear-gradient(160deg,#1E1810,#28200E)">👘</div><div class="adm-prod-info"><div class="adm-prod-name">عباية ساتان</div><div class="adm-prod-price">1,920 ج.م</div><div class="adm-actions-row"><button class="adm-btn cursor-hover">تعديل</button><button class="adm-btn danger cursor-hover">حذف</button></div></div></div>
-            <div class="adm-prod-card"><div class="adm-prod-img" style="background:linear-gradient(160deg,#251C12,#191108)">👚</div><div class="adm-prod-info"><div class="adm-prod-name">بلوزة حرير</div><div class="adm-prod-price">960 ج.م</div><div class="adm-actions-row"><button class="adm-btn cursor-hover">تعديل</button><button class="adm-btn danger cursor-hover">حذف</button></div></div></div>
-            <div class="adm-prod-card"><div class="adm-prod-img" style="background:linear-gradient(160deg,#2E2318,#1C1510)">🩱</div><div class="adm-prod-info"><div class="adm-prod-name">ست صيفي</div><div class="adm-prod-price">840 ج.م</div><div class="adm-actions-row"><button class="adm-btn cursor-hover">تعديل</button><button class="adm-btn danger cursor-hover">حذف</button></div></div></div>
+          <div class="adm-grid-products" id="admProdsGrid">
+            <div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--gold);font-size:.8rem;letter-spacing:.3em">جاري التحميل...</div>
           </div>
         </div>
 
@@ -1799,12 +1787,8 @@ input:checked+.toggle-track:before{transform:translateX(20px)}
             <div class="adm-card-title" style="display:flex;justify-content:space-between">جميع الطلبات <button class="adm-btn cursor-hover">تصدير Excel</button></div>
             <table class="adm-table">
               <thead><tr><th>رقم</th><th>العميلة</th><th>التاريخ</th><th>الإجمالي</th><th>الدفع</th><th>الحالة</th><th>إجراءات</th></tr></thead>
-              <tbody>
-                <tr><td>#١٢٤٥</td><td>سارة محمود</td><td>١١ مايو</td><td style="color:var(--gold-bright)">1,850 ج.م</td><td>بطاقة</td><td><span class="status-pill sp-delivered">تم</span></td><td><button class="adm-btn cursor-hover">تفاصيل</button></td></tr>
-                <tr><td>#١٢٤٤</td><td>نور خالد</td><td>١١ مايو</td><td style="color:var(--gold-bright)">2,370 ج.م</td><td>استلام</td><td><span class="status-pill sp-processing">جاري</span></td><td><button class="adm-btn cursor-hover">تحديث</button></td></tr>
-                <tr><td>#١٢٤٣</td><td>ريم فارس</td><td>١٠ مايو</td><td style="color:var(--gold-bright)">960 ج.م</td><td>إنستاباي</td><td><span class="status-pill sp-pending">انتظار</span></td><td><button class="adm-btn cursor-hover">تفاصيل</button></td></tr>
-                <tr><td>#١٢٤٢</td><td>منى إبراهيم</td><td>١٠ مايو</td><td style="color:var(--gold-bright)">840 ج.م</td><td>فوري</td><td><span class="status-pill sp-delivered">تم</span></td><td><button class="adm-btn cursor-hover">تفاصيل</button></td></tr>
-                <tr><td>#١٢٤١</td><td>لمى حسن</td><td>٩ مايو</td><td style="color:var(--gold-bright)">780 ج.م</td><td>بطاقة</td><td><span class="status-pill sp-cancelled">ملغي</span></td><td><button class="adm-btn cursor-hover">تفاصيل</button></td></tr>
+              <tbody id="ordersTableBody">
+                <tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--gold);font-size:.8rem;letter-spacing:.3em">جاري التحميل...</td></tr>
               </tbody>
             </table>
           </div>
@@ -1816,10 +1800,8 @@ input:checked+.toggle-track:before{transform:translateX(20px)}
             <div class="adm-card-title">قائمة العملاء</div>
             <table class="adm-table">
               <thead><tr><th>الاسم</th><th>البريد</th><th>المدينة</th><th>الطلبات</th><th>الإنفاق</th><th>العضوية</th></tr></thead>
-              <tbody>
-                <tr><td style="color:rgba(248,243,236,.7)">سارة محمود</td><td>sara@email.com</td><td>القاهرة</td><td>١٢</td><td style="color:var(--gold-bright)">18,400 ج.م</td><td><span class="status-pill sp-delivered">VIP</span></td></tr>
-                <tr><td style="color:rgba(248,243,236,.7)">نور خالد</td><td>nour@email.com</td><td>الإسكندرية</td><td>٧</td><td style="color:var(--gold-bright)">9,200 ج.م</td><td><span class="status-pill sp-processing">عادي</span></td></tr>
-                <tr><td style="color:rgba(248,243,236,.7)">ريم فارس</td><td>reem@email.com</td><td>الجيزة</td><td>٣</td><td style="color:var(--gold-bright)">3,600 ج.م</td><td><span class="status-pill sp-processing">عادي</span></td></tr>
+              <tbody id="customersTableBody">
+                <tr><td colspan="6" style="text-align:center;padding:2rem;color:var(--gold);font-size:.8rem;letter-spacing:.3em">جاري التحميل...</td></tr>
               </tbody>
             </table>
           </div>
@@ -1828,13 +1810,24 @@ input:checked+.toggle-track:before{transform:translateX(20px)}
         <!-- COUPONS -->
         <div class="adm-section" id="sec-coupons">
           <div class="adm-card">
-            <div class="adm-card-title" style="display:flex;justify-content:space-between">الكوبونات <button class="adm-btn primary cursor-hover">+ جديد</button></div>
+            <div class="adm-card-title" style="display:flex;justify-content:space-between">الكوبونات <button class="adm-btn primary cursor-hover" onclick="showAddCouponForm()">+ جديد</button></div>
+            <div id="addCouponForm" style="display:none;margin-bottom:1.5rem;padding:1rem;border:1px solid rgba(184,146,74,.1)">
+              <div class="adm-form-grid">
+                <div class="adm-form-group"><label class="adm-form-label">الكود</label><input class="adm-form-input" id="cpCode" placeholder="BELLE10"></div>
+                <div class="adm-form-group"><label class="adm-form-label">النوع</label><select class="adm-form-select" id="cpType"><option value="percent">نسبة مئوية %</option><option value="fixed">قيمة ثابتة ج.م</option></select></div>
+                <div class="adm-form-group"><label class="adm-form-label">القيمة</label><input class="adm-form-input" id="cpValue" type="number" placeholder="10"></div>
+                <div class="adm-form-group"><label class="adm-form-label">الحد الأقصى للاستخدام</label><input class="adm-form-input" id="cpMax" type="number" placeholder="اتركي فارغاً = بلا حد"></div>
+                <div class="adm-form-group"><label class="adm-form-label">تاريخ الانتهاء</label><input class="adm-form-input" id="cpExpiry" type="date"></div>
+              </div>
+              <div style="display:flex;gap:1rem;margin-top:.5rem">
+                <button class="adm-btn primary cursor-hover" onclick="saveCoupon()">حفظ الكوبون</button>
+                <button class="adm-btn cursor-hover" onclick="document.getElementById('addCouponForm').style.display='none'">إلغاء</button>
+              </div>
+            </div>
             <table class="adm-table">
               <thead><tr><th>الكود</th><th>النوع</th><th>القيمة</th><th>الاستخدام</th><th>انتهاء الصلاحية</th><th>الحالة</th><th>إجراءات</th></tr></thead>
-              <tbody>
-                <tr><td style="color:var(--gold-bright);font-weight:500">BELLE10</td><td>نسبة ١٠٪</td><td>١٠٪</td><td>٢٣/٥٠</td><td>٣١ مايو</td><td><span class="status-pill sp-delivered">نشط</span></td><td><div class="adm-actions-row"><button class="adm-btn cursor-hover">تعديل</button><button class="adm-btn danger cursor-hover">حذف</button></div></td></tr>
-                <tr><td style="color:var(--gold-bright);font-weight:500">EID2025</td><td>قيمة ثابتة</td><td>١٠٠ ج.م</td><td>٤٧/١٠٠</td><td>٣٠ يونيو</td><td><span class="status-pill sp-delivered">نشط</span></td><td><div class="adm-actions-row"><button class="adm-btn cursor-hover">تعديل</button><button class="adm-btn danger cursor-hover">حذف</button></div></td></tr>
-                <tr><td style="color:var(--gold-bright);font-weight:500">WELCOME</td><td>نسبة ١٥٪</td><td>١٥٪</td><td>١٢/∞</td><td>لا تنتهي</td><td><span class="status-pill sp-processing">محدود</span></td><td><div class="adm-actions-row"><button class="adm-btn cursor-hover">تعديل</button><button class="adm-btn danger cursor-hover">حذف</button></div></td></tr>
+              <tbody id="couponsTableBody">
+                <tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--gold);font-size:.8rem;letter-spacing:.3em">جاري التحميل...</td></tr>
               </tbody>
             </table>
           </div>
@@ -1843,9 +1836,29 @@ input:checked+.toggle-track:before{transform:translateX(20px)}
         <!-- CMS -->
         <div class="adm-section" id="sec-cms">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem">
-            <div class="adm-card"><div class="adm-card-title">البانر الرئيسي</div><div class="adm-form-group"><label class="adm-form-label">العنوان</label><input class="adm-form-input" value="حيث الأناقة تلتقي الروح"></div><div class="adm-form-group"><label class="adm-form-label">النص الثانوي</label><input class="adm-form-input" value="أزياء فاخرة · مصرية الأصل"></div><button class="adm-btn primary cursor-hover" onclick="alert('تم الحفظ ✦')">حفظ</button></div>
-            <div class="adm-card"><div class="adm-card-title">شريط الإعلان</div><div class="adm-form-group"><label class="adm-form-label">نص الشريط</label><input class="adm-form-input" value="🎉 شحن مجاني فوق 800 ج.م"></div><div style="display:flex;align-items:center;gap:.8rem;margin-bottom:1rem"><label class="toggle-sw"><input type="checkbox" checked><span class="toggle-track"></span></label><span style="font-size:.78rem;color:rgba(248,243,236,.4)">مفعّل</span></div><button class="adm-btn primary cursor-hover" onclick="alert('تم الحفظ ✦')">حفظ</button></div>
-            <div class="adm-card" style="grid-column:span 2"><div class="adm-card-title">قصة بيل – صفحة "عن بيل"</div><textarea class="adm-form-textarea" style="width:100%;height:120px">بدأت "بيل بوتيك" من حلم بسيط...</textarea><button class="adm-btn primary cursor-hover" style="margin-top:1rem" onclick="alert('تم الحفظ ✦')">حفظ</button></div>
+            <div class="adm-card">
+              <div class="adm-card-title">البانر الرئيسي</div>
+              <div class="adm-form-group"><label class="adm-form-label">العنوان</label><input class="adm-form-input" id="cms_hero_title" placeholder="جاري التحميل..."></div>
+              <div class="adm-form-group"><label class="adm-form-label">النص الثانوي</label><input class="adm-form-input" id="cms_hero_subtitle" placeholder="جاري التحميل..."></div>
+              <button class="adm-btn primary cursor-hover" onclick="saveCmsSetting('hero_title,hero_subtitle')">حفظ</button>
+            </div>
+            <div class="adm-card">
+              <div class="adm-card-title">شريط الإعلان</div>
+              <div class="adm-form-group"><label class="adm-form-label">نص الشريط</label><input class="adm-form-input" id="cms_announcement_bar" placeholder="جاري التحميل..."></div>
+              <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:1rem">
+                <label class="toggle-sw"><input type="checkbox" id="cms_announcement_active"><span class="toggle-track"></span></label>
+                <span style="font-size:.78rem;color:rgba(248,243,236,.4)">مفعّل</span>
+              </div>
+              <button class="adm-btn primary cursor-hover" onclick="saveCmsSetting('announcement_bar,announcement_active')">حفظ</button>
+            </div>
+            <div class="adm-card" style="grid-column:span 2">
+              <div class="adm-card-title">الواتساب والشحن</div>
+              <div class="adm-form-grid">
+                <div class="adm-form-group"><label class="adm-form-label">رقم الواتساب</label><input class="adm-form-input" id="cms_whatsapp" placeholder="201000000000"></div>
+                <div class="adm-form-group"><label class="adm-form-label">حد الشحن المجاني (ج.م)</label><input class="adm-form-input" id="cms_free_shipping_threshold" type="number" placeholder="800"></div>
+              </div>
+              <button class="adm-btn primary cursor-hover" onclick="saveCmsSetting('whatsapp,free_shipping_threshold')">حفظ</button>
+            </div>
           </div>
         </div>
 
@@ -2162,6 +2175,613 @@ document.querySelectorAll('.ed-card,.sp-card').forEach(card=>{
   });
   card.addEventListener('mouseleave',()=>{gsap.to(card,{rotateY:0,rotateX:0,duration:.8,ease:'elastic.out(1,.5)'})});
 });
+</script>
+
+<!-- ===== SUPABASE INTEGRATION ===== -->
+<script>
+// ── Supabase Config ──────────────────────────────────────────────────────────
+const SUPABASE_URL  = 'https://xfpznbwygzpruoppqbkq.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhmcHpuYnd5Z3pwcnVvcHBxYmtxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2MjU4NzYsImV4cCI6MjA5NDIwMTg3Nn0.4T37jVTD3i1XMhEcCE1jGb_t3R5NFZK1Cm8qs-VNiC0';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+
+// ── Emoji fallback palette for products ─────────────────────────────────────
+const EMOJIS = ['👗','👘','👚','🩱','🧣','👜','💎','✨','🌸','☀️','🎀','🌹'];
+const BG_GRADIENTS = [
+  'linear-gradient(160deg,#F0E8DC,#D9C4A8)',
+  'linear-gradient(160deg,#E8DFD0,#C4A882)',
+  'linear-gradient(160deg,#D9C4A8,#F0E8DC)',
+  'linear-gradient(160deg,#C4A882,#F0E8DC)',
+  'linear-gradient(160deg,#B8924A,#E8DFD0)',
+  'linear-gradient(160deg,#F5F0EA,#E8DFD0)',
+];
+function rndEmoji(i){ return EMOJIS[i % EMOJIS.length]; }
+function rndBg(i){ return BG_GRADIENTS[i % BG_GRADIENTS.length]; }
+
+// ── Status helpers ───────────────────────────────────────────────────────────
+const STATUS_MAP = {
+  'delivered':'sp-delivered','تم التوصيل':'sp-delivered',
+  'processing':'sp-processing','جاري':'sp-processing',
+  'pending':'sp-pending','انتظار':'sp-pending',
+  'cancelled':'sp-cancelled','ملغي':'sp-cancelled'
+};
+const STATUS_LABEL = {
+  'delivered':'تم التوصيل','processing':'جاري','pending':'انتظار','cancelled':'ملغي',
+  'تم التوصيل':'تم التوصيل','جاري':'جاري','انتظار':'انتظار','ملغي':'ملغي'
+};
+function statusPill(s){
+  const cls = STATUS_MAP[s] || STATUS_MAP[(s||'').toLowerCase()] || 'sp-pending';
+  const lbl = STATUS_LABEL[s] || s || 'انتظار';
+  return `<span class="status-pill ${cls}">${lbl}</span>`;
+}
+
+// ── Format date ──────────────────────────────────────────────────────────────
+function fmtDate(d){
+  if(!d) return '—';
+  const dt = new Date(d);
+  return dt.toLocaleDateString('ar-EG',{day:'numeric',month:'short'});
+}
+
+// ── Toast notification ───────────────────────────────────────────────────────
+function toast(msg, ok=true){
+  const t = document.createElement('div');
+  t.style.cssText=`position:fixed;bottom:2rem;right:2rem;z-index:9999;padding:.8rem 1.5rem;
+    background:${ok?'var(--gold)':'#ef5350'};color:#fff;font-size:.78rem;letter-spacing:.1em;
+    border-radius:2px;box-shadow:0 4px 20px rgba(0,0,0,.15);transition:opacity .4s`;
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(()=>{t.style.opacity='0';setTimeout(()=>t.remove(),400);}, 2500);
+}
+
+// ════════════════════════════════════════════════════════════════════════════
+// PRODUCTS
+// ════════════════════════════════════════════════════════════════════════════
+let allProducts = [];   // cache
+
+async function loadProducts(){
+  const { data, error } = await sb.from('products').select('*').order('created_at',{ascending:false});
+  if(error){ console.error('products error:',error); return []; }
+  return data || [];
+}
+
+function renderShopProducts(products){
+  const grid = document.getElementById('shopProds');
+  if(!products.length){
+    grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:4rem;color:rgba(0,0,0,.3);font-size:.85rem">لا توجد منتجات حالياً</div>';
+    return;
+  }
+  grid.innerHTML = products.map((p,i)=>{
+    const img = p.image_url
+      ? `<img src="${p.image_url}" style="width:100%;height:100%;object-fit:cover" alt="${p.name_ar||p.name||''}"/>`
+      : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3.5rem;background:${rndBg(i)}">${rndEmoji(i)}</div>`;
+    const badgeHtml = p.badge ? `<span class="sp-badge ${p.badge==='جديد'||p.badge==='new'?'new-badge':''}">${p.badge}</span>` : '';
+    const priceHtml = p.price_original && p.price_original > p.price
+      ? `<span class="sp-price-old">${Number(p.price_original).toLocaleString('ar-EG')}</span>${Number(p.price).toLocaleString('ar-EG')} ج.م`
+      : `${Number(p.price||0).toLocaleString('ar-EG')} ج.م`;
+    return `
+      <div class="sp-card cursor-hover" onclick="openProductDetail(${p.id})">
+        <div class="sp-img-wrap">
+          ${img}
+          ${badgeHtml}
+          <div class="sp-actions">
+            <button class="sp-act-btn cursor-hover" onclick="event.stopPropagation();flyToCart(event)">إضافة للسلة</button>
+            <button class="sp-act-btn cursor-hover" style="max-width:50px" onclick="event.stopPropagation();wishToggle(this)">♡</button>
+          </div>
+        </div>
+        <div class="sp-name">${p.name_ar||p.name||'منتج'}</div>
+        <div class="sp-price">${priceHtml}</div>
+      </div>`;
+  }).join('');
+}
+
+function renderAdminProducts(products){
+  const grid = document.getElementById('admProdsGrid');
+  if(!products.length){
+    grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:3rem;color:rgba(0,0,0,.3)">لا توجد منتجات</div>';
+    return;
+  }
+  grid.innerHTML = products.map((p,i)=>{
+    const imgHtml = p.image_url
+      ? `<img src="${p.image_url}" style="width:100%;height:100%;object-fit:cover"/>`
+      : rndEmoji(i);
+    return `
+      <div class="adm-prod-card">
+        <div class="adm-prod-img" style="background:${rndBg(i)}">${imgHtml}</div>
+        <div class="adm-prod-info">
+          <div class="adm-prod-name">${p.name_ar||p.name||'منتج'}</div>
+          <div class="adm-prod-price">${Number(p.price||0).toLocaleString('ar-EG')} ج.م</div>
+          <div style="font-size:.68rem;color:rgba(0,0,0,.3);margin-bottom:.5rem">مخزون: ${p.stock??'—'}</div>
+          <div class="adm-actions-row">
+            <button class="adm-btn cursor-hover" onclick="openEditProduct(${p.id})">تعديل</button>
+            <button class="adm-btn danger cursor-hover" onclick="deleteProduct(${p.id})">حذف</button>
+          </div>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+// Save new product
+async function saveNewProduct(){
+  const get = id => document.getElementById(id)?.value?.trim();
+  const nameAr = get('pNameAr');
+  const nameEn = get('pNameEn');
+  const price  = parseFloat(get('pPrice'));
+  const priceO = parseFloat(get('pPriceOld')) || null;
+  const cat    = get('pCat');
+  const stock  = parseInt(get('pStock')) || 0;
+  const desc   = get('pDesc');
+
+  if(!nameAr || !price){ toast('يرجى إدخال الاسم والسعر', false); return; }
+
+  const { error } = await sb.from('products').insert([{
+    name_ar: nameAr, name: nameEn||nameAr,
+    price, price_original: priceO,
+    category: cat, stock, description: desc,
+    created_at: new Date().toISOString()
+  }]);
+  if(error){ toast('خطأ في الحفظ: '+error.message, false); return; }
+  toast('✦ تم حفظ المنتج بنجاح');
+  document.getElementById('addProdForm').style.display='none';
+  await refreshProducts();
+}
+
+async function deleteProduct(id){
+  if(!confirm('هل أنت متأكدة من الحذف؟')) return;
+  const { error } = await sb.from('products').delete().eq('id', id);
+  if(error){ toast('خطأ في الحذف', false); return; }
+  toast('تم الحذف');
+  await refreshProducts();
+}
+
+async function openEditProduct(id){
+  const p = allProducts.find(x=>x.id===id);
+  if(!p) return;
+  const name = prompt('الاسم (عربي):', p.name_ar||p.name||'');
+  if(name===null) return;
+  const price = prompt('السعر:', p.price);
+  if(price===null) return;
+  const stock = prompt('المخزون:', p.stock??0);
+
+  const { error } = await sb.from('products').update({
+    name_ar: name, price: parseFloat(price)||p.price,
+    stock: parseInt(stock)||0
+  }).eq('id', id);
+  if(error){ toast('خطأ في التعديل', false); return; }
+  toast('تم التعديل ✦');
+  await refreshProducts();
+}
+
+async function refreshProducts(){
+  allProducts = await loadProducts();
+  renderShopProducts(allProducts);
+  renderAdminProducts(allProducts);
+  // update count text
+  const countEl = document.querySelector('.shop-page-hero p');
+  if(countEl && allProducts.length) countEl.textContent = `${allProducts.length} قطعة فاخرة في انتظاركِ`;
+  const admCountEl = document.querySelector('#sec-products > div > span');
+  if(admCountEl) admCountEl.textContent = `${allProducts.length} منتج`;
+}
+
+function openProductDetail(id){
+  const p = allProducts.find(x=>x.id===id);
+  if(!p){ showPage('product'); return; }
+  // Update product detail page dynamically
+  const i = allProducts.indexOf(p);
+  document.querySelector('.pdp-name').textContent = p.name_ar||p.name||'منتج';
+  document.querySelector('.pdp-label').textContent = p.category||'منتج';
+  const priceEl = document.querySelector('.pdp-price');
+  if(p.price_original && p.price_original>p.price)
+    priceEl.innerHTML=`<span class="pdp-price-old">${Number(p.price_original).toLocaleString('ar-EG')} ج.م</span>${Number(p.price).toLocaleString('ar-EG')} ج.م`;
+  else
+    priceEl.textContent=`${Number(p.price||0).toLocaleString('ar-EG')} ج.م`;
+  // image
+  const mainImg = document.getElementById('pdpMainImg');
+  if(p.image_url){
+    mainImg.innerHTML=`<img src="${p.image_url}" style="width:100%;height:100%;object-fit:cover"/>`;
+  } else {
+    mainImg.textContent=rndEmoji(i);
+    mainImg.style.background=rndBg(i);
+  }
+  showPage('product');
+}
+
+// Search shop from Supabase
+async function searchShop(v){
+  if(!v.trim()){
+    renderShopProducts(allProducts);
+    return;
+  }
+  const q = v.toLowerCase();
+  const filtered = allProducts.filter(p=>(p.name_ar||p.name||'').toLowerCase().includes(q));
+  renderShopProducts(filtered);
+}
+
+// Wire up save button (patch old inline onclick)
+document.addEventListener('DOMContentLoaded', ()=>{
+  const saveBtn = document.querySelector('#addProdForm .adm-btn.primary');
+  if(saveBtn) saveBtn.onclick = saveNewProduct;
+  // Patch input IDs for the add form
+  const inputs = document.querySelectorAll('#addProdForm .adm-form-input, #addProdForm .adm-form-select, #addProdForm .adm-form-textarea');
+  const ids=['pNameAr','pNameEn','pPriceOld','pPrice','pCat','pStock','pDesc'];
+  inputs.forEach((el,i)=>{ if(ids[i]) el.id=ids[i]; });
+});
+
+// ════════════════════════════════════════════════════════════════════════════
+// ORDERS
+// ════════════════════════════════════════════════════════════════════════════
+let allOrders = [];
+
+async function loadOrders(){
+  const { data, error } = await sb.from('orders').select('*').order('created_at',{ascending:false});
+  if(error){ console.error('orders error:',error); return []; }
+  return data || [];
+}
+
+function renderDashOrders(orders){
+  const tbody = document.getElementById('dashOrdersBody');
+  if(!orders.length){
+    tbody.innerHTML='<tr><td colspan="5" style="text-align:center;padding:2rem;color:rgba(0,0,0,.3)">لا توجد طلبات</td></tr>';
+    return;
+  }
+  tbody.innerHTML = orders.slice(0,5).map(o=>`
+    <tr>
+      <td>#${o.id}</td>
+      <td style="color:rgba(248,243,236,.7)">${o.customer_name||o.customer||'—'}</td>
+      <td>${o.items||o.product_name||'—'}</td>
+      <td style="color:var(--gold-bright)">${Number(o.total||0).toLocaleString('ar-EG')} ج.م</td>
+      <td>${statusPill(o.status)}</td>
+    </tr>`).join('');
+}
+
+function renderAllOrders(orders){
+  const tbody = document.getElementById('ordersTableBody');
+  if(!tbody) return;
+  if(!orders.length){
+    tbody.innerHTML='<tr><td colspan="7" style="text-align:center;padding:2rem;color:rgba(0,0,0,.3)">لا توجد طلبات</td></tr>';
+    return;
+  }
+  tbody.innerHTML = orders.map(o=>`
+    <tr>
+      <td>#${o.id}</td>
+      <td>${o.customer_name||o.customer||'—'}</td>
+      <td>${fmtDate(o.created_at)}</td>
+      <td style="color:var(--gold-bright)">${Number(o.total||0).toLocaleString('ar-EG')} ج.م</td>
+      <td>${o.payment_method||'—'}</td>
+      <td>${statusPill(o.status)}</td>
+      <td>
+        <select onchange="updateOrderStatus(${o.id},this.value)" style="font-size:.65rem;padding:.25rem .4rem;background:transparent;border:1px solid rgba(184,146,74,.2);color:rgba(0,0,0,.5);cursor:pointer;font-family:'Jost',sans-serif">
+          <option value="">تغيير الحالة</option>
+          <option value="pending">انتظار</option>
+          <option value="processing">جاري</option>
+          <option value="delivered">تم التوصيل</option>
+          <option value="cancelled">ملغي</option>
+        </select>
+      </td>
+    </tr>`).join('');
+}
+
+async function updateOrderStatus(id, status){
+  if(!status) return;
+  const { error } = await sb.from('orders').update({status}).eq('id',id);
+  if(error){ toast('خطأ في التحديث', false); return; }
+  toast('تم تحديث الحالة ✦');
+  await refreshOrders();
+}
+
+async function refreshOrders(){
+  allOrders = await loadOrders();
+  renderDashOrders(allOrders);
+  renderAllOrders(allOrders);
+  // update stats
+  const todayOrders = allOrders.filter(o=>{
+    const d = new Date(o.created_at);
+    const now = new Date();
+    return d.toDateString()===now.toDateString();
+  });
+  const statOrders = document.querySelectorAll('.adm-stat-val')[1];
+  if(statOrders) statOrders.textContent = todayOrders.length || allOrders.length;
+  // update orders page counts
+  const oToday = document.querySelector('#sec-orders .adm-card div:nth-child(1) div:first-child');
+  if(oToday) oToday.textContent = todayOrders.length || allOrders.length;
+  const pending = allOrders.filter(o=>o.status==='pending'||o.status==='انتظار').length;
+  const delivered = allOrders.filter(o=>o.status==='delivered'||o.status==='تم التوصيل').length;
+  const osPend = document.querySelector('#sec-orders .adm-card div:nth-child(2) div:first-child');
+  if(osPend) osPend.textContent = pending;
+  const osDel = document.querySelector('#sec-orders .adm-card div:nth-child(3) div:first-child');
+  if(osDel) osDel.textContent = delivered;
+}
+
+// ════════════════════════════════════════════════════════════════════════════
+// CUSTOMERS
+// ════════════════════════════════════════════════════════════════════════════
+async function loadCustomers(){
+  const { data, error } = await sb.from('customers').select('*').order('total_spent',{ascending:false});
+  if(error){ console.error('customers error:',error); return []; }
+  return data || [];
+}
+
+function renderCustomers(customers){
+  const tbody = document.getElementById('customersTableBody');
+  if(!tbody) return;
+  if(!customers.length){
+    tbody.innerHTML='<tr><td colspan="6" style="text-align:center;padding:2rem;color:rgba(0,0,0,.3)">لا يوجد عملاء</td></tr>';
+    return;
+  }
+  tbody.innerHTML = customers.map(c=>{
+    const isVip = (c.total_spent||0) >= 10000;
+    return `
+      <tr>
+        <td style="color:rgba(248,243,236,.7)">${c.name||'—'}</td>
+        <td>${c.email||'—'}</td>
+        <td>${c.city||'—'}</td>
+        <td>${c.orders_count||0}</td>
+        <td style="color:var(--gold-bright)">${Number(c.total_spent||0).toLocaleString('ar-EG')} ج.م</td>
+        <td>${isVip?'<span class="status-pill sp-delivered">VIP</span>':'<span class="status-pill sp-processing">عادي</span>'}</td>
+      </tr>`;
+  }).join('');
+}
+
+// ════════════════════════════════════════════════════════════════════════════
+// DASHBOARD STATS
+// ════════════════════════════════════════════════════════════════════════════
+async function loadDashStats(){
+  // Total sales today
+  const today = new Date().toISOString().split('T')[0];
+  const { data: todaySales } = await sb.from('orders')
+    .select('total')
+    .gte('created_at', today+'T00:00:00')
+    .not('status','eq','cancelled');
+
+  const todayTotal = (todaySales||[]).reduce((s,o)=>s+(Number(o.total)||0),0);
+
+  // Monthly sales
+  const firstOfMonth = new Date(new Date().getFullYear(), new Date().getMonth(), 1).toISOString();
+  const { data: monthSales } = await sb.from('orders')
+    .select('total')
+    .gte('created_at', firstOfMonth)
+    .not('status','eq','cancelled');
+  const monthTotal = (monthSales||[]).reduce((s,o)=>s+(Number(o.total)||0),0);
+
+  // Update stat cards
+  const stats = document.querySelectorAll('.adm-stat-val');
+  if(stats[0]) stats[0].textContent = todayTotal ? todayTotal.toLocaleString('ar-EG') : '0';
+  if(stats[3]) stats[3].textContent = monthTotal >= 1000
+    ? (monthTotal/1000).toFixed(0)+'K'
+    : monthTotal.toLocaleString('ar-EG');
+}
+
+// ════════════════════════════════════════════════════════════════════════════
+// NEWSLETTER SUBSCRIPTION (Supabase)
+// ════════════════════════════════════════════════════════════════════════════
+async function subscribeNewsletter(){
+  const input = document.querySelector('.nl-input');
+  const email = input?.value?.trim();
+  if(!email || !email.includes('@')){ toast('يرجى إدخال بريد إلكتروني صحيح', false); return; }
+
+  const { error } = await sb.from('newsletter').insert([{email, subscribed_at: new Date().toISOString()}]);
+  if(error && error.code !== '23505'){ // ignore duplicate
+    toast('خطأ في الاشتراك', false); return;
+  }
+  toast('تم الاشتراك! خصم ١٠٪ في انتظارك 🎁');
+  if(input) input.value = '';
+}
+
+// ════════════════════════════════════════════════════════════════════════════
+// CONTACT FORM (Supabase)
+// ════════════════════════════════════════════════════════════════════════════
+async function submitContactForm(){
+  const name    = document.querySelector('.cf-input[type=text]')?.value?.trim();
+  const email   = document.querySelector('.cf-input[type=email]')?.value?.trim();
+  const phone   = document.querySelector('.cf-input[type=tel]')?.value?.trim();
+  const subject = document.querySelector('.cf-select')?.value;
+  const message = document.querySelector('.cf-textarea')?.value?.trim();
+
+  if(!name || !message){ toast('يرجى إدخال الاسم والرسالة', false); return; }
+
+  const { error } = await sb.from('contact_messages').insert([{
+    name, email, phone, subject, message,
+    created_at: new Date().toISOString()
+  }]);
+  if(error){ toast('خطأ في الإرسال، حاولي مرة أخرى', false); return; }
+  toast('شكراً! سنتواصل معكِ خلال ٢٤ ساعة ✦');
+  document.querySelectorAll('.cf-input,.cf-textarea').forEach(el=>el.value='');
+}
+
+// Patch contact form submit button
+document.addEventListener('DOMContentLoaded',()=>{
+  const cfBtn = document.querySelector('.cf-submit');
+  if(cfBtn) cfBtn.onclick = submitContactForm;
+  const nlBtn = document.querySelector('.nl-btn');
+  if(nlBtn) nlBtn.onclick = subscribeNewsletter;
+});
+
+// ════════════════════════════════════════════════════════════════════════════
+// REALTIME — listen for new orders
+// ════════════════════════════════════════════════════════════════════════════
+function setupRealtime(){
+  sb.channel('orders-changes')
+    .on('postgres_changes',{event:'INSERT',schema:'public',table:'orders'}, payload=>{
+      toast(`🛍 طلب جديد #${payload.new.id} من ${payload.new.customer_name||'عميلة'}`);
+      refreshOrders();
+    })
+    .on('postgres_changes',{event:'UPDATE',schema:'public',table:'orders'}, ()=>{
+      refreshOrders();
+    })
+    .subscribe();
+}
+
+// ════════════════════════════════════════════════════════════════════════════
+// COUPONS
+// ════════════════════════════════════════════════════════════════════════════
+async function loadCoupons(){
+  const { data, error } = await sb.from('coupons').select('*').order('created_at',{ascending:false});
+  if(error){ console.error('coupons error:',error); return []; }
+  return data || [];
+}
+
+function renderCoupons(coupons){
+  const tbody = document.getElementById('couponsTableBody');
+  if(!tbody) return;
+  if(!coupons.length){
+    tbody.innerHTML='<tr><td colspan="7" style="text-align:center;padding:2rem;color:rgba(0,0,0,.3)">لا توجد كوبونات</td></tr>';
+    return;
+  }
+  tbody.innerHTML = coupons.map(c=>{
+    const typeLabel = c.type==='percent' ? `نسبة ${c.value}٪` : `قيمة ثابتة`;
+    const valLabel  = c.type==='percent' ? `${c.value}٪` : `${c.value} ج.م`;
+    const usageLabel = `${c.used_count||0}/${c.max_uses||'∞'}`;
+    const expiry = c.expires_at ? fmtDate(c.expires_at) : 'لا تنتهي';
+    const active = c.is_active ? '<span class="status-pill sp-delivered">نشط</span>' : '<span class="status-pill sp-pending">موقوف</span>';
+    return `<tr>
+      <td style="color:var(--gold-bright);font-weight:500">${c.code}</td>
+      <td>${typeLabel}</td><td>${valLabel}</td><td>${usageLabel}</td>
+      <td>${expiry}</td><td>${active}</td>
+      <td><div class="adm-actions-row">
+        <button class="adm-btn cursor-hover" onclick="toggleCoupon(${c.id},${c.is_active})">${c.is_active?'إيقاف':'تفعيل'}</button>
+        <button class="adm-btn danger cursor-hover" onclick="deleteCoupon(${c.id})">حذف</button>
+      </div></td>
+    </tr>`;
+  }).join('');
+}
+
+function showAddCouponForm(){
+  const f = document.getElementById('addCouponForm');
+  f.style.display = f.style.display==='none' ? 'block' : 'none';
+}
+
+async function saveCoupon(){
+  const code   = document.getElementById('cpCode')?.value?.trim().toUpperCase();
+  const type   = document.getElementById('cpType')?.value;
+  const value  = parseFloat(document.getElementById('cpValue')?.value);
+  const maxUse = parseInt(document.getElementById('cpMax')?.value) || null;
+  const expiry = document.getElementById('cpExpiry')?.value || null;
+
+  if(!code || !value){ toast('يرجى إدخال الكود والقيمة', false); return; }
+
+  const { error } = await sb.from('coupons').insert([{
+    code, type, value, max_uses: maxUse,
+    expires_at: expiry ? new Date(expiry).toISOString() : null,
+    created_at: new Date().toISOString()
+  }]);
+  if(error){ toast('خطأ: الكود موجود مسبقاً أو بيانات غير صحيحة', false); return; }
+  toast('✦ تم حفظ الكوبون');
+  document.getElementById('addCouponForm').style.display='none';
+  refreshCoupons();
+}
+
+async function deleteCoupon(id){
+  if(!confirm('حذف الكوبون؟')) return;
+  await sb.from('coupons').delete().eq('id',id);
+  toast('تم الحذف');
+  refreshCoupons();
+}
+
+async function toggleCoupon(id, current){
+  await sb.from('coupons').update({is_active:!current}).eq('id',id);
+  refreshCoupons();
+}
+
+async function refreshCoupons(){
+  const coupons = await loadCoupons();
+  renderCoupons(coupons);
+}
+
+// Validate coupon in cart
+async function applyCoupon(){
+  const input = document.querySelector('.coupon-wrap input');
+  const code = input?.value?.trim().toUpperCase();
+  if(!code){ toast('أدخلي كود الكوبون', false); return; }
+
+  const { data } = await sb.from('coupons')
+    .select('*').eq('code', code).eq('is_active', true).single();
+
+  if(!data){ toast('كوبون غير صحيح أو منتهي الصلاحية', false); return; }
+  if(data.expires_at && new Date(data.expires_at) < new Date()){ toast('انتهت صلاحية الكوبون', false); return; }
+  if(data.max_uses && data.used_count >= data.max_uses){ toast('الكوبون وصل الحد الأقصى للاستخدام', false); return; }
+
+  const discount = data.type==='percent'
+    ? `خصم ${data.value}٪ على إجمالي الطلب`
+    : `خصم ${data.value} ج.م على إجمالي الطلب`;
+  toast(`✦ ${discount}`);
+  // increment usage
+  await sb.from('coupons').update({used_count:(data.used_count||0)+1}).eq('id',data.id);
+}
+
+// ════════════════════════════════════════════════════════════════════════════
+// SITE SETTINGS (CMS)
+// ════════════════════════════════════════════════════════════════════════════
+let siteSettings = {};
+
+async function loadSiteSettings(){
+  const { data } = await sb.from('site_settings').select('*');
+  siteSettings = {};
+  (data||[]).forEach(row=>{ siteSettings[row.key]=row.value; });
+  applySiteSettings();
+}
+
+function applySiteSettings(){
+  // Announcement bar
+  const bar = document.querySelector('.marquee-item');
+  if(bar && siteSettings.announcement_bar){
+    const items = document.querySelectorAll('.marquee-item');
+    items.forEach(el=>{ if(el.textContent.includes('شحن')) el.textContent=siteSettings.announcement_bar; });
+  }
+  // WhatsApp
+  const wa = document.querySelector('.wa-btn');
+  if(wa && siteSettings.whatsapp) wa.href=`https://wa.me/${siteSettings.whatsapp}`;
+
+  // Fill CMS inputs
+  const fill = (id, key) => {
+    const el = document.getElementById(id);
+    if(el && siteSettings[key]!==undefined) el.value = siteSettings[key];
+  };
+  fill('cms_hero_title','hero_title');
+  fill('cms_hero_subtitle','hero_subtitle');
+  fill('cms_announcement_bar','announcement_bar');
+  fill('cms_whatsapp','whatsapp');
+  fill('cms_free_shipping_threshold','free_shipping_threshold');
+  const chk = document.getElementById('cms_announcement_active');
+  if(chk) chk.checked = siteSettings.announcement_active === 'true';
+}
+
+async function saveCmsSetting(keys){
+  const keyArr = keys.split(',');
+  const updates = [];
+  for(const key of keyArr){
+    let value;
+    const el = document.getElementById('cms_'+key);
+    if(el){ value = el.type==='checkbox' ? String(el.checked) : el.value; }
+    if(value!==undefined){
+      updates.push(sb.from('site_settings').upsert({key, value, updated_at:new Date().toISOString()},{onConflict:'key'}));
+    }
+  }
+  await Promise.all(updates);
+  toast('✦ تم حفظ الإعدادات');
+  await loadSiteSettings();
+}
+
+// ════════════════════════════════════════════════════════════════════════════
+// INIT — add coupons + settings to startup
+// ════════════════════════════════════════════════════════════════════════════
+async function initSupabase(){
+  await Promise.all([
+    refreshProducts(),
+    refreshOrders(),
+    loadCustomers().then(renderCustomers),
+    loadDashStats(),
+    refreshCoupons(),
+    loadSiteSettings()
+  ]);
+  setupRealtime();
+  // Wire coupon apply button
+  const couponBtn = document.querySelector('.coupon-wrap button');
+  if(couponBtn) couponBtn.onclick = applyCoupon;
+}
+
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', initSupabase);
+} else {
+  initSupabase();
+}
 </script>
 </body>
 </html>
